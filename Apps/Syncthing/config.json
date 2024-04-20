@@ -1,0 +1,7 @@
+{
+"label":"Syncthing",
+"icon": "sync_icon.png",
+"launch":"launch.sh",
+"background":"bg.png",
+"description":"Syncthing is a continuous file synchronization program."
+}
