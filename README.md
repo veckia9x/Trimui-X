@@ -7,7 +7,7 @@ This is my main motivation for this repo.
 Default user/password: `trimui`/`trimuisync`  
   
 When launching for the first time it will download and install the necessary binaries.  
-It mays seen as frozen for a couple seconds to minutes, it depends on your internet connection and the server.
+It mays seen as frozen for a couple seconds to minutes, it depends on your internet connection and the server.  
 Just wait and it will exit as soon as it finishes the installation.
   
   
