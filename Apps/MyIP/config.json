@@ -1,0 +1,6 @@
+{
+    "label":"My IP",
+    "icon": "ip_icon.png",
+    "launch":"launch.sh",
+    "description":"Simply displays your IP associated with your wifi connection"
+    }
