@@ -3,7 +3,7 @@
 Apps/Scripts that add some funcionalities to the Trimui Smart Pro.  
 Currently you need to also have TRIMUI_EX or TomatoOS.  
   
-### Syncthing  (current version: 1.27.3-1_armv7)
+### Syncthing  (current version: 1.27.3-1_aarch64)
 This is my main motivation for this repo.  
 Default user/password: `trimui`/`trimuisync`  
   
