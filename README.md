@@ -16,7 +16,6 @@ It uses the sdl2imgshow and displays your IP when connected to the wifi, exits i
   
 ### TODO:  
 - make use of functions to isolate some things, add possibilities and streamline the script 
-- ask for wifi to be turned on if off (MyIP app).  
 - verify if some binaries are available  
   
 ### CREDITS and thanks:  

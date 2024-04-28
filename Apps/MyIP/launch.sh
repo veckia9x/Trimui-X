@@ -3,29 +3,42 @@
 
 export PATH="/mnt/SDCARD/System/bin:$PATH"
 export LD_LIBRARY_PATH="/mnt/SDCARD/System/lib:/usr/trimui/lib:$LD_LIBRARY_PATH"
-export EX_CONFIG_PATH="/mnt/SDCARD/System/etc"
-export EX_RESOURCE_PATH="/mnt/SDCARD/System/resources"
 
 #=======================
-# Var. Def.
+# Variables
 #=======================
 
-MYIP=$(ip addr show wlan0 | grep -m1 inet | awk '{print $2}' | cut -d'/' -f1)
+MYIP=$(ifconfig | grep -A1 wlan0 | grep -m1 inet | awk '{print $2}' | cut -d'/' -f1| cut -d':' -f2 )
+BGP=/mnt/SDCARD/Apps/MyIP/bg.png
+FONT=/mnt/SDCARD/Apps/MyIP/font.ttf
+SEC=10
 
 #=======================
-# SHOW TIME!
+# Functions
 #=======================
 
-sdl2imgshow \
-    -i "/mnt/SDCARD/Apps/MyIP/bg.png" \
-    -f "/mnt/SDCARD/Apps/MyIP/font.ttf" \
+displaymsg(){
+  sdl2imgshow \
+    -i "$BGP" \
+    -f "$FONT" \
     -s 90 \
     -c "0,0,255" \
     -t "$MYIP" &
+  sleep $SEC
+  pkill -f sdl2imgshow
+}
 
-sleep 10
+#=======================
+# Runtime
+#=======================
 
-pkill -f sdl2imgshow
+if [ $MYIP ]
+then
+  displaymsg
+else
+  MYIP="TURN WIFI ON"
+  displaymsg
+fi
 
 # alpha#9751
 # https://github.com/veckia9x/Trimui-X

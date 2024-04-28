@@ -3,8 +3,6 @@
 
 export PATH="/mnt/SDCARD/System/bin:$PATH"
 export LD_LIBRARY_PATH="/mnt/SDCARD/System/lib:/usr/trimui/lib:$LD_LIBRARY_PATH"
-export EX_CONFIG_PATH="/mnt/SDCARD/System/etc"
-export EX_RESOURCE_PATH="/mnt/SDCARD/System/resources"
 
 #=======================
 # Var. Def.
@@ -16,7 +14,7 @@ SYNCUSER=trimui
 SYNCPASS=trimuisync
 
 # DO NOT CHANGE THIS UNLESS YOU ABSOLUTELLY KNOWS WHAT YOURE DOING!
-DLINK=http://bin.entware.net/armv7sf-k3.2/syncthing_1.27.3-1_armv7-3.2.ipk
+DLINK=https://bin.entware.net/aarch64-k3.10/syncthing_1.27.3-1_aarch64-3.10.ipk
 
 #=======================
 # install if needed
@@ -48,8 +46,9 @@ else
   # syncthing basic setup
   cd $HOMEBIN/
   ./syncthing generate --no-default-folder --gui-user="$SYNCUSER" --gui-password="$SYNCPASS" --config="$HOMEBIN"
-  #allow for external connections
+  # allow for external connections and show a better device name 
   sed -i 's|127\.0\.0\.1|0.0.0.0|' $HOMEBIN/config.xml
+  sed -i 's|TinaLinux|Trimui\ Smart\ Pro|' $HOMEBIN/config.xml
   # re-enable devices ability to sleep
   rm /tmp/stay_awake
   pkill -f sdl2imgshow
@@ -64,11 +63,13 @@ if [ -f $HOMEAPP/status.lock ]; then
   echo Stopping syncthing
   kill -2 $(pidof syncthing)
   kill -9 $(pidof syncthing)
+  sed -i 's|Syncthing ON|Syncthing|' $HOMEAPP/config.json
   rm -rf $HOMEAPP/status.lock
 else
   echo Starting syncthing
   cd $HOMEBIN
   ./syncthing serve --no-restart --no-upgrade --config="$HOMEBIN" --data="$HOMEBIN/data" > /dev/null &
+  sed -i 's|Syncthing|Syncthing ON|' $HOMEAPP/config.json
   touch $HOMEAPP/status.lock
 fi
 

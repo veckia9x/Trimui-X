@@ -1,3 +1,13 @@
+v0.4  (202404)
+  
+  - changed the icon of MyIP (thanks Barbira)  
+  - MyIP displays msg if wifi is off.  
+  - Fixed a bug: MyIP displayed the previous IP even with wifi off.  
+  - changed syncthing (same version) arch from `armv7sf-k3.2` to `aarch64-k3.10`  
+  - Now Syncthing shows as `Syncthing ON` when started and as `Syncthing` when stopped.  
+  - Syncthing homepage show system as `Trimui Smart Pro` instead of `Tina Linux`.  
+  - some code changes/cleanup  
+
 v0.3 (20240422)  
   
 - added the "MyIP" app.  
