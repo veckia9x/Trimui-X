@@ -1,3 +1,6 @@
+v0.5  
+  - Added ThemixPro v0.8.
+  
 v0.4  (202404)
   
   - changed the icon of MyIP (thanks Barbira)  
