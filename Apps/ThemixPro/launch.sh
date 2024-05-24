@@ -18,8 +18,9 @@ TH_PATH=$(grep theme  "/mnt/UDISK/system.json" | cut -d"\"" -f 4)
 
 update_config_file() {
     local file="$1"
+    local type="icon/"
     local icon_name=$(basename "$(dirname "$file")")
-    local icon_name=$(echo $TH_PATH$icon_name | sed 's/\//\\\//g')
+    local icon_name=$(echo $TH_PATH$type$icon_name | sed 's/\//\\\//g')
     sed -i 's/^ *"icon".*,/"icon":"'"$icon_name"'.png",/' "$file"
     echo "Updated $file"
 }
