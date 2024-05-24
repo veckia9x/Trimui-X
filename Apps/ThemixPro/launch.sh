@@ -28,6 +28,8 @@ update_all_configs() {
     find "$BASE_PATH" -type f -name 'config.json' | while read -r file; do
         update_config_file "$file"
     done
+    local v_ui=$(top -n1 | grep -m1 "MainUI" | cut -d" " -f 2)
+    kill -9 $v_ui
     echo $TH_PATH > /mnt/SDCARD/Apps/ThemixPro/theme
     echo "All config.json files have been updated."
 }
