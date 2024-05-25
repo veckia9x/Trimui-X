@@ -22,8 +22,12 @@ first_run() {
         local icon_name=$(echo /mnt/SDCARD/Themes/themixpro/icon/$icon_name)
         local og_icon=$(grep icon\"\: $file | cut -d"\"" -f 4)
         local og_path=$(dirname $file)
-        cp $og_path$og_icon $icon_name\.png
-        echo "Icon $file copy done."
+        if [ -z $og_icon ]; then
+            echo "empty var for $og_path"
+        else
+            cp $og_path$og_icon $icon_name\.png
+            echo "Icon $file copy done."
+        fi        
         done
 
         # copy default iconsel
@@ -33,19 +37,27 @@ first_run() {
         local icon_name=$(echo /mnt/SDCARD/Themes/themixpro/iconsel/$icon_name)
         local og_icon=$(grep iconsel\"\: $file | cut -d"\"" -f 4)
         local og_path=$(dirname $file)
-        cp $og_path$og_icon $icon_name\.png
-        echo "Iconsel $file copy done."
+        if [ -z $og_icon ]; then
+            echo "empty var for $og_path"
+        else
+            cp $og_path$og_icon $icon_name\.png
+            echo "Iconsel $file copy done."
+        fi
         done
 
         # copy default bg
         mkdir -p /mnt/SDCARD/Themes/themixpro/bg
         find "$BASE_PATH" -type f -name 'config.json' | while read -r file; do
-        local icon_name=$(basename "$(dirname "$file")")
-        local icon_name=$(echo /mnt/SDCARD/Themes/themixpro/bg/$icon_name)
-        local og_icon=$(grep background\"\: $file | cut -d"\"" -f 4)
+        local bg_name=$(basename "$(dirname "$file")")
+        local bg_name=$(echo /mnt/SDCARD/Themes/themixpro/bg/$bg_name)
+        local og_bg=$(grep background\"\: $file | cut -d"\"" -f 4)
         local og_path=$(dirname $file)
-        cp $og_path$og_icon $icon_name\.png
-        echo "Bg $file copy done."
+        if [ -z $og_bg ]; then
+            echo "empty var for $og_path"
+        else
+            cp $og_path$og_bg $bg_name\.png
+            echo "Bg $file copy done."
+        fi
         done
 
         cp /mnt/SDCARD/Apps/ThemixPro/ThemixPro.sh /mnt/SDCARD/System/starts/ThemixPro.sh
