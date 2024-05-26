@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# BOOT_ENABLE has 2 options, "no" or "yes", capitalization matters. Default: "no"
+# If "no" is selected then Syncthing will not start with system startup.
+# If "yes" is selected then Syncthing will start with system startup. No need
+# to manually start synthing, but it will consume resources from the system,
+# even with wifi off.
+BOOT_ENABLE=no
+
+# alpha#9751
+# https://github.com/veckia9x/Trimui-X

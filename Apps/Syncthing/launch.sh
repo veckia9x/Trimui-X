@@ -1,15 +1,14 @@
 #!/bin/sh
 
-
-export PATH="/mnt/SDCARD/System/bin:$PATH"
-export LD_LIBRARY_PATH="/mnt/SDCARD/System/lib:/usr/trimui/lib:$LD_LIBRARY_PATH"
-
 #=======================
 # Var. Def.
 #=======================
+export PATH="/mnt/SDCARD/System/bin:$PATH"
+export LD_LIBRARY_PATH="/mnt/SDCARD/System/lib:/usr/trimui/lib:$LD_LIBRARY_PATH"
 
 HOMEAPP=/mnt/SDCARD/Apps/Syncthing
 HOMEBIN=/mnt/SDCARD/System/syncthing
+SBOOT=/mnt/SDCARD/System/starts
 SYNCUSER=trimui
 SYNCPASS=trimuisync
 
@@ -17,7 +16,7 @@ SYNCPASS=trimuisync
 DLINK=https://bin.entware.net/aarch64-k3.10/syncthing_1.27.3-1_aarch64-3.10.ipk
 
 #=======================
-# install if needed
+# install script
 #=======================
 
 if [ -d "$HOMEBIN/" ]; then
@@ -29,7 +28,6 @@ else
     -s 90 \
     -c "255,0,0" \
     -t "Installing Syncthing 1.27.3" &
-
   # keep device on
   echo 1 > /tmp/stay_awake
   # download pkg
@@ -49,28 +47,46 @@ else
   # allow for external connections and show a better device name 
   sed -i 's|127\.0\.0\.1|0.0.0.0|' $HOMEBIN/config.xml
   sed -i 's|TinaLinux|Trimui\ Smart\ Pro|' $HOMEBIN/config.xml
+  # check if synthing should run at boot
+  source $HOMEAPP/options
+  if [ "$BOOT_ENABLE" == "yes" ]; then
+      mkdir -p /mnt/SDCARD/System/starts
+      cp $HOMEAPP/sync_boot.sh /mnt/SDCARD/System/starts/
+  fi
   # re-enable devices ability to sleep
   rm /tmp/stay_awake
   pkill -f sdl2imgshow
 fi
 
 #=======================
-# Start/Stop 
+# Start/Stop function
 #=======================
 
-#check status
-if [ -f $HOMEAPP/status.lock ]; then
-  echo Stopping syncthing
-  kill -2 $(pidof syncthing)
-  kill -9 $(pidof syncthing)
-  sed -i 's|Syncthing ON|Syncthing|' $HOMEAPP/config.json
-  rm -rf $HOMEAPP/status.lock
+start_runtime() {
+  #check status
+  if [ -f $HOMEAPP/status.lock ]; then
+    echo Stopping syncthing
+    kill -2 $(pidof syncthing)
+    kill -9 $(pidof syncthing)
+    sed -i 's|Syncthing ON|Syncthing|' $HOMEAPP/config.json
+    rm -rf $HOMEAPP/status.lock
+  else
+    echo Starting syncthing
+    cd $HOMEBIN
+    ./syncthing serve --no-restart --no-upgrade --config="$HOMEBIN" --data="$HOMEBIN/data" > /dev/null &
+    sed -i 's|Syncthing|Syncthing ON|' $HOMEAPP/config.json
+    touch $HOMEAPP/status.lock
+  fi
+}
+
+#=======================
+# Run Forest RUN 
+#=======================
+
+if [ -f $SBOOT/sync_boot.sh ]; then
+  echo Boot enable active.
 else
-  echo Starting syncthing
-  cd $HOMEBIN
-  ./syncthing serve --no-restart --no-upgrade --config="$HOMEBIN" --data="$HOMEBIN/data" > /dev/null &
-  sed -i 's|Syncthing|Syncthing ON|' $HOMEAPP/config.json
-  touch $HOMEAPP/status.lock
+  start_runtime
 fi
 
 # alpha#9751

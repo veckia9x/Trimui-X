@@ -1,7 +1,7 @@
-v0.5  
-  - Added ThemixPro v0.8.
+v0.4.1  (20240524)  
+  - Added the option to enable Syncthing on TSP boot.  
   
-v0.4  (202404)
+v0.4  (202404)  
   
   - changed the icon of MyIP (thanks Barbira)  
   - MyIP displays msg if wifi is off.  

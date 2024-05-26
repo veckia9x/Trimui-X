@@ -32,3 +32,6 @@ run_main() {
 }
 
 run_main &
+
+# alpha#9751
+# https://github.com/veckia9x/Trimui-X
