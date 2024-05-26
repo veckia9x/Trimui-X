@@ -17,6 +17,7 @@ This was my main motivation for this repo.
 Default user/password: `trimui`/`trimuisync`  
 Theres an option to enable Syncthing on Trimui Smart Pro start.  
 To enable it the user should edit file `options` inside `Apps/Syncthing/`.  
+If enabled, please reboot after install completes.  
   
 When launching for the first time it will download and install the necessary binaries.  
 It mays seen as frozen for a couple seconds to minutes, it depends on your internet connection and the server.  
