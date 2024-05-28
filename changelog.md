@@ -1,4 +1,4 @@
-v0.4.2  
+v0.4.2  (20240527)  
   - More options added tho syncthing options file.  
   
 v0.4.1  (20240524)  
