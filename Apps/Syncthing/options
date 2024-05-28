@@ -7,5 +7,26 @@
 # even with wifi off.
 BOOT_ENABLE=no
 
+# Default user (trimui) on first install, change to something else if you like, no special chars or space.
+# If you wish to use space please use escaped spaces, like below with a \ before space.
+# Same as above for special characters.
+SYNCUSER=trimui
+
+# Default user password (trimuisync) on first install, change to something else if you like, no special chars or space.
+# If you wish to use space please use escaped spaces, like below with a \ before space.
+# Same as above for special characters.
+# I dont recommend keeping the password writen here after install is complete. Keep your passwords safe.
+SYNCPASS=trimuisync
+
+# Device name (default: Trimui\ Smart\ Pro), the one that appears on window name, and next to the syncthing icon after you're logged in.
+# If you wish to use space please use escaped spaces, like below with a \ before space.
+# Same as above for special characters.
+DEVICENAME=Trimui\ Smart\ Pro
+
+# Default folder, moved from the user root inside nand to syncthing folder inside the SD CARD.
+# Done this to make default folder easily to manage and prevent nand wear.
+# If the folder doenst exist, it'll be created.
+DEFAULTFOLDER=/mnt/SDCARD/System/syncthing/files
+
 # alpha#9751
 # https://github.com/veckia9x/Trimui-X

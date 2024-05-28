@@ -1,3 +1,6 @@
+v0.4.2  
+  - More options added tho syncthing options file.  
+  
 v0.4.1  (20240524)  
   - Added the option to enable Syncthing on TSP boot.  
   

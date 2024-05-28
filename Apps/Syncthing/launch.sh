@@ -9,8 +9,14 @@ export LD_LIBRARY_PATH="/mnt/SDCARD/System/lib:/usr/trimui/lib:$LD_LIBRARY_PATH"
 HOMEAPP=/mnt/SDCARD/Apps/Syncthing
 HOMEBIN=/mnt/SDCARD/System/syncthing
 SBOOT=/mnt/SDCARD/System/starts
+
+### DO NOT CHANGE THESE, USE THE OPTIONS FILE!
+BOOT_ENABLE=no
 SYNCUSER=trimui
 SYNCPASS=trimuisync
+DEVICENAME=Trimui\ Smart\ Pro
+DEFAULTFOLDER=/mnt/SDCARD/System/syncthing/files
+### DO NOT CHANGE THESE, USE THE OPTIONS FILE!
 
 # DO NOT CHANGE THIS UNLESS YOU ABSOLUTELLY KNOWS WHAT YOURE DOING!
 DLINK=https://bin.entware.net/aarch64-k3.10/syncthing_1.27.3-1_aarch64-3.10.ipk
@@ -43,12 +49,14 @@ else
   rm -rf control* opt/ data* debian* syncthing_pkg.ipk
   # syncthing basic setup
   cd $HOMEBIN/
+  source $HOMEAPP/options
   ./syncthing generate --no-default-folder --gui-user="$SYNCUSER" --gui-password="$SYNCPASS" --config="$HOMEBIN"
   # allow for external connections and show a better device name 
   sed -i 's|127\.0\.0\.1|0.0.0.0|' $HOMEBIN/config.xml
-  sed -i 's|TinaLinux|Trimui\ Smart\ Pro|' $HOMEBIN/config.xml
+  sed -i "s|TinaLinux|$DEVICENAME|" $HOMEBIN/config.xml
+  mkdir -p $DEFAULTFOLDER
+  sed -i "s|\~|$DEFAULTFOLDER|" $HOMEBIN/config.xml
   # check if synthing should run at boot
-  source $HOMEAPP/options
   if [ "$BOOT_ENABLE" == "yes" ]; then
       mkdir -p /mnt/SDCARD/System/starts
       cp $HOMEAPP/sync_boot.sh /mnt/SDCARD/System/starts/

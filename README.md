@@ -9,23 +9,23 @@ ThemixPro will detect when a theme is changed and update the icons and backgroun
 Themes must have respective folders inside for `icon`, `iconsel` and `bg`.  
 Each icon/bg must have the name of the system as in Emus folder. eg SFC? `icon/SFC.png`; `iconsel/SFC.png`; `bg/SFC.png` (...)  
   
+### AlphaScraper (WIP)  
+Its a scraper built for Trimui Smart Pro, but with portability in mind, meaning it should be an easy port.  
+For now it just downloads media, doesnt output anything, so user has no idea what is going on. (to be changed)  
+Waiting on my devID from screenscraper.fr to test some things and fix/write some code if needed.  
+  
 ### My IP  
 It uses the sdl2imgshow and displays your IP when connected to the wifi, exits in 10 seconds.  
   
 ### Syncthing  (current version: 1.27.3-1_aarch64)  
-This was my main motivation for this repo.  
-Default user/password: `trimui`/`trimuisync`  
-Theres an option to enable Syncthing on Trimui Smart Pro start.  
-To enable it the user should edit file `options` inside `Apps/Syncthing/`.  
-If enabled, please reboot after install completes.  
-  
 When launching for the first time it will download and install the necessary binaries.  
 It mays seen as frozen for a couple seconds to minutes, it depends on your internet connection and the server.  
 Just wait and it will exit as soon as it finishes the installation.  
   
-### TODO:  
-- make use of functions to isolate some things, add possibilities and streamline the script  
-- verify if some binaries are available  
+Default user/password: `trimui`/`trimuisync`  
+Theres an option to enable Syncthing on Trimui Smart Pro start.  
+To enable it the user should edit file `options` inside `Apps/Syncthing/`.  
+If enabled, please reboot after install completes.  
   
 ### CREDITS and thanks:  
   
