@@ -1,3 +1,7 @@
+v0.5.1 (20240530)  
+  - Fixed a background bug on ThemixPro.  
+  - Changed the background of the theme by tenlevels on ThemixPro to the original idea.  
+  
 v0.5 (20240530)  
   - First release of the ThemixPro.  
   - Synthing now starts *after install* if boot option is `yes`  
