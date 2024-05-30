@@ -60,6 +60,7 @@ else
   if [ "$BOOT_ENABLE" == "yes" ]; then
       mkdir -p /mnt/SDCARD/System/starts
       cp $HOMEAPP/sync_boot.sh /mnt/SDCARD/System/starts/
+      $HOMEBIN/syncthing serve --no-restart --no-upgrade --config="$HOMEBIN" --data="$HOMEBIN/data" > /dev/null &
   fi
   # re-enable devices ability to sleep
   rm /tmp/stay_awake

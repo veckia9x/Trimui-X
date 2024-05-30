@@ -5,9 +5,9 @@ Currently you need to also have TRIMUI_EX or TomatoOS.
   
 ### ThemixPro (WIP)  
 Elevate the quality of your themes with ThemixPro.  
-ThemixPro will detect when a theme is changed and update the icons and backgrounds of each system.  
-Themes must have respective folders inside for `icon`, `iconsel` and `bg`.  
-Each icon/bg must have the name of the system as in Emus folder. eg SFC? `icon/SFC.png`; `iconsel/SFC.png`; `bg/SFC.png` (...)  
+ThemixPro will detect when a theme is changed and update the icon, iconsel and background of each system.  
+Themes must have respective folders inside for `icon`, `iconsel` and `background`.  
+Each icon/iconsel/background must have the name of the system as in Emus folder. eg SFC? `icon/SFC.png`; `iconsel/SFC.png`; `background/SFC.png` (...)  
   
 ### AlphaScraper (WIP)  
 Its a scraper built for Trimui Smart Pro, but with portability in mind, meaning it should be an easy port.  

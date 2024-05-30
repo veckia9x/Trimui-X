@@ -1,3 +1,7 @@
+v0.5  
+  - First release of the ThemixPro.  
+  - Synthing now starts after install if boot option is "yes"  
+  
 v0.4.2  (20240527)  
   - More options added tho syncthing options file.  
   

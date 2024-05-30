@@ -5,13 +5,8 @@ THEME_NAME_FILE="/mnt/SDCARD/Apps/ThemixPro/theme"
 LAUNCH_SCRIPT="/mnt/SDCARD/Apps/ThemixPro/launch.sh"
 last_modified=$(stat -c %Y "$SYSTEM_JSON")
 
-get_theme_name() {
-    theme_name=$(cat "$THEME_NAME_FILE" | cut -d "/" -f5)
-    echo "$theme_name"
-}
-
 check_theme() {
-    theme_name=$(get_theme_name)
+    theme_name=$(cat "$THEME_NAME_FILE" | cut -d "/" -f5)
     if grep -q "\"theme\":\s*\"/mnt/SDCARD/Themes/$theme_name/\"" "$SYSTEM_JSON"; then
         echo "Theme in use: $theme_name"
     else
