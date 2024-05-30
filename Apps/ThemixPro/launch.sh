@@ -33,6 +33,7 @@ first_run() {
     fi
     done
     # copy and run of the start script
+    mv /mnt/SDCARD/Apps/ThemixPro/GREYS-DARK /mnt/SDCARD/Themes/
     cp /mnt/SDCARD/Apps/ThemixPro/ThemixPro.sh /mnt/SDCARD/System/starts/ThemixPro.sh
     sh /mnt/SDCARD/System/starts/ThemixPro.sh &
 }

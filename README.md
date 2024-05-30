@@ -8,8 +8,11 @@ Elevate the quality of your themes with ThemixPro.
 ThemixPro will detect when a theme is changed and update the icon, iconsel and background of each system.  
 Themes must have respective folders inside for `icon`, `iconsel` and `background`.  
 Each icon/iconsel/background must have the name of the system as in Emus folder. eg SFC? `icon/SFC.png`; `iconsel/SFC.png`; `background/SFC.png` (...)  
-For more information on how it works please click on app name above.
-  
+For more information on how it works please click on app name above.  
+Ships with a theme, `GREYS-DARK by tenlevels`.  
+Special thanks to **tenlevels** for his time, theme, ideas and testing on this!  
+
+
 ### AlphaScraper (WIP)  
 Its a scraper built for Trimui Smart Pro, but with portability in mind, meaning it should be an easy port.  
 For now it just downloads media, doesnt output anything, so user has no idea what is going on. (to be changed)  
