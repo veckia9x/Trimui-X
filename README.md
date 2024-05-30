@@ -3,11 +3,12 @@
 Apps/Scripts that add some funcionalities to the Trimui Smart Pro.  
 Currently you need to also have TRIMUI_EX or TomatoOS.  
   
-### ThemixPro (WIP)  
+### [ThemixPro](https://github.com/veckia9x/Trimui-X/tree/main/Apps/ThemixPro)  
 Elevate the quality of your themes with ThemixPro.  
 ThemixPro will detect when a theme is changed and update the icon, iconsel and background of each system.  
 Themes must have respective folders inside for `icon`, `iconsel` and `background`.  
 Each icon/iconsel/background must have the name of the system as in Emus folder. eg SFC? `icon/SFC.png`; `iconsel/SFC.png`; `background/SFC.png` (...)  
+For more information on how it works please click on app name above.
   
 ### AlphaScraper (WIP)  
 Its a scraper built for Trimui Smart Pro, but with portability in mind, meaning it should be an easy port.  
