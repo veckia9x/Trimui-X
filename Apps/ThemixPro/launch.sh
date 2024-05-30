@@ -61,10 +61,13 @@ update_config_file() {
         sed -i 's/^ *"'"$type"'".*,/"'"$type"'":"'"$img_name"'.png",/' "$file"
     else
         local def_system=$(basename "$(dirname "$file")")
-        local def_system=$(echo /mnt/SDCARD/Themes/themixpro/$type/$def_system | sed 's/\//\\\//g')
         if [ "$type" == "iconsel" ]; then
             sed -i 's/^ *"'"$type"'".*,/"'"$type"'":"",/' "$file"
+        elif [ -f "$TH_PATH$type/default_override.png" ]; then
+            local def_system=$(echo /mnt/SDCARD/Themes/themixpro/$type/default_override | sed 's/\//\\\//g')
+            sed -i 's/^ *"'"$type"'".*,/"'"$type"'":"'"$def_system"'.png",/' "$file"
         else
+            local def_system=$(echo /mnt/SDCARD/Themes/themixpro/$type/$def_system | sed 's/\//\\\//g')
             sed -i 's/^ *"'"$type"'".*,/"'"$type"'":"'"$def_system"'.png",/' "$file"
         fi
     fi
