@@ -33,6 +33,8 @@ If enabled, please reboot after install completes.
   
 ### CREDITS and thanks:  
   
+Special thanks to **tenlevels** for his time, theme, ideas and testing on ThemixPro!  
+
 [Entware](https://entware.net/)  
 Kloptops [SDL2ImgShow](https://github.com/kloptops/sdl2imgshow)  
 Dale Harris [Made in China font](https://www.dafont.com/pt/made-in-china.font)  
