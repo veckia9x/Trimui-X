@@ -11,8 +11,7 @@ Each icon/iconsel/background must have the name of the system as in Emus folder.
 For more information on how it works please click on app name above.  
 Ships with a theme, `GREYS-DARK by tenlevels`.  
 Special thanks to **tenlevels** for his time, theme, ideas and testing on this!  
-
-
+  
 ### AlphaScraper (WIP)  
 Its a scraper built for Trimui Smart Pro, but with portability in mind, meaning it should be an easy port.  
 For now it just downloads media, doesnt output anything, so user has no idea what is going on. (to be changed)  
@@ -34,7 +33,7 @@ If enabled, please reboot after install completes.
 ### CREDITS and thanks:  
   
 Special thanks to **tenlevels** for his time, theme, ideas and testing on ThemixPro!  
-
+  
 [Entware](https://entware.net/)  
 Kloptops [SDL2ImgShow](https://github.com/kloptops/sdl2imgshow)  
 Dale Harris [Made in China font](https://www.dafont.com/pt/made-in-china.font)  
