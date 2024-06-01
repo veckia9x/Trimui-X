@@ -1,0 +1,6 @@
+{
+    "label":"ArtScraper",
+    "icon": "as_icon.png",
+    "launch":"launch.sh",
+    "description":"Scrapes the desired art type for your roms"
+}
